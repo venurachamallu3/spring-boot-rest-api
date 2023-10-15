@@ -1,0 +1,135 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#
+#---
+#
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    url: jdbc:mysql://localhost:3306/department
+#    platform: mysql
+#    password: Mysql@123
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: 'true'
+#welcome:
+#  message: WELCOME TO THE PROD DEPARTMENT SERVICE......
+#
+#---
+#
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    url: jdbc:mysql://localhost:3306/department-dev
+#    platform: mysql
+#    password: Mysql@123
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: 'true'
+#welcome:
+#  message: WELCOME TO THE DEV DEPARTMENT SERVICE......
+#
+#
+#---
+#
+#spring:
+#  config:
+#    activate:
+#      on-profile: uat
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    url: jdbc:mysql://localhost:3306/department-uat
+#    platform: mysql
+#    password: Mysql@123
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: 'true'
+#welcome:
+#  message: WELCOME TO THE UAT DEPARTMENT SERVICE......
+#
+
+
+
+
+
+
+
+---
+
+spring:
+  profiles:
+    config:
+      on-activate: prod
+
+
+
+---
+spring:
+  profiles:
+    config:
+      on-activate: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Mysql@123
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/department
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+---
+spring:
+  profiles:
+    config:
+      on-activate: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Mysql@123
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/department-dev
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+
+---
+spring:
+  profiles:
+    config:
+      on-activate: uat
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Mysql@123
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/department-uat
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+
+
+
+
