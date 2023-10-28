@@ -79,4 +79,38 @@ public class DepartmentServiceImpl {
         log.info("countDepartments in the Department Service....");
         return Math.toIntExact(departmentRepository.count());
     }
+
+    public Department getDepartmentByIdusingV2(Long departmentId) throws  DepartmentNotFoundException{
+        Optional<Department> department = departmentRepository.findById(departmentId);
+//        if(department.isPresent()){
+//
+//
+//        }
+        if (department.isPresent()){
+            department.get().setDepartmentName(department.get().getDepartmentName()+"-"+department.get().getDepartmentCode());
+            return department.get();
+        }
+        throw new DepartmentNotFoundException(" Department Not Available ....");
+
+
+    }
+
+    public Department getDepartmentByIdusingQueryParam(Long departmentId) throws  DepartmentNotFoundException{
+        Optional<Department> department = departmentRepository.findById(departmentId);
+        if (department.isPresent()){
+            department.get().setDepartmentName(department.get().getDepartmentName()+"-"+department.get().getDepartmentCode()+"-"+(department.get().getDepartmentAddress()).charAt(0));
+            return department.get();
+        }
+        throw new DepartmentNotFoundException(" Department Not Available ....");
+    }
+
+    public Department getDepartmentByIdusingHeaders(Long departmentId) throws DepartmentNotFoundException {
+
+        Optional<Department> department = departmentRepository.findById(departmentId);
+        if (department.isPresent()){
+            department.get().setDepartmentAddress((department.get().getDepartmentAddress().toUpperCase()));
+        return department.get();
+        }
+        throw new DepartmentNotFoundException(" Department Not Available ....");
+    }
 }
